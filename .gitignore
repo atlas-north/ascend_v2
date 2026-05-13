@@ -4,6 +4,10 @@ node_modules/
 # Next.js
 .next/
 out/
+next-env.d.ts
+
+# TypeScript
+tsconfig.tsbuildinfo
 
 # Payload
 src/payload-types.ts
