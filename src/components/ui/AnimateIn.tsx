@@ -3,14 +3,13 @@
 import { useEffect, useRef, useState } from 'react'
 
 type Props = {
-  children: React.ReactNode
-  delay?: 0 | 100 | 200 | 300
+  children:   React.ReactNode
+  delay?:     0 | 100 | 200 | 300
   className?: string
-  as?: keyof JSX.IntrinsicElements
 }
 
-export default function AnimateIn({ children, delay = 0, className = '', as: Tag = 'div' }: Props) {
-  const ref  = useRef<HTMLElement>(null)
+export default function AnimateIn({ children, delay = 0, className = '' }: Props) {
+  const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -32,8 +31,7 @@ export default function AnimateIn({ children, delay = 0, className = '', as: Tag
   }, [])
 
   return (
-    // @ts-expect-error — Tag is a valid intrinsic element
-    <Tag
+    <div
       ref={ref}
       className={className}
       style={{
@@ -43,6 +41,6 @@ export default function AnimateIn({ children, delay = 0, className = '', as: Tag
       }}
     >
       {children}
-    </Tag>
+    </div>
   )
 }
