@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Payload
+src/payload-types.ts
+src/generated-schema.graphql
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Build
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
