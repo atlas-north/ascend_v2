@@ -381,7 +381,11 @@ async function main() {
   }
 
   console.log('Initialising Payload...')
-  await payload.init({ config, local: true })
+  await payload.init({
+    secret: process.env.PAYLOAD_SECRET as string,
+    config,
+    local:  true,
+  })
 
   await seedArticles()
   await seedCases()
