@@ -4,10 +4,11 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { webpackBundler } from '@payloadcms/bundler-webpack'
 import path from 'path'
 
-import Articles  from '@/collections/Articles'
-import Cases     from '@/collections/Cases'
-import Campaigns from '@/collections/Campaigns'
-import Media     from '@/collections/Media'
+import Articles  from './collections/Articles'
+import Cases     from './collections/Cases'
+import Campaigns from './collections/Campaigns'
+import Media     from './collections/Media'
+import Users     from './collections/Users'
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
@@ -26,7 +27,7 @@ export default buildConfig({
     features: ({ defaultFeatures }) => defaultFeatures,
   }),
 
-  collections: [Articles, Cases, Campaigns, Media],
+  collections: [Users, Articles, Cases, Campaigns, Media],
 
   db: postgresAdapter({
     pool: {

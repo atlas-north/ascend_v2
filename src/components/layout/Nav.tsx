@@ -34,13 +34,20 @@ export default function Nav() {
       }}
     >
       <div className="container flex items-center justify-between h-[var(--nav-height)]">
-        {/* Logo */}
+        {/* Logo: pyramid icon + ATLAS thin / ASCEND bold */}
         <Link
           href="/"
           onClick={closeMenu}
-          className="text-white font-[500] text-[15px] tracking-[0.14em] hover:opacity-80 transition-opacity"
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
-          ATLASASCEND
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+            <path d="M14 2L26 24H2L14 2Z" stroke="#B87333" strokeWidth="1.5" fill="none" strokeLinejoin="round"/>
+            <path d="M14 10L20 22H8L14 10Z" fill="#B87333" opacity="0.3"/>
+          </svg>
+          <span className="text-[15px] tracking-[0.14em]">
+            <span style={{ fontWeight: 100 }}>ATLAS</span>
+            <span style={{ fontWeight: 800 }}>ASCEND</span>
+          </span>
         </Link>
 
         {/* Desktop links */}

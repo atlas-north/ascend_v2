@@ -1,11 +1,21 @@
 import Link from 'next/link'
 
-const navLinks = [
-  { label: 'How it works', href: '/how-it-works' },
-  { label: 'Capabilities',  href: '/capabilities' },
-  { label: 'Cases',         href: '/cases' },
-  { label: 'Intelligence',  href: '/intelligence' },
-  { label: 'About',         href: '/about' },
+/* ─── Link data ───────────────────────────────────────────────────────────── */
+
+const legalLinks = [
+  { label: 'Privacy Policy',      href: '/privacy' },
+  { label: 'Data Management',     href: '/data-management' },
+  { label: 'Terms & Conditions',  href: '/terms' },
+  { label: 'Cookie Policy',       href: '/cookies' },
+  { label: 'GDPR Compliance',     href: '/gdpr' },
+]
+
+const quickLinks = [
+  { label: 'FAQ',          href: '/faq' },
+  { label: 'How it Works', href: '/how-it-works' },
+  { label: 'Capabilities', href: '/capabilities' },
+  { label: 'Cases',        href: '/cases' },
+  { label: 'Book a Call',  href: '/book' },
 ]
 
 const socialLinks = [
@@ -16,31 +26,16 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="bg-[var(--color-ink)]">
-      <div className="container pt-[60px] pb-8">
-        {/* Top row */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-8">
-          {/* Logo */}
+      <div className="container pt-[80px] pb-10">
+        {/* ── Top: Logo + social ───────────────────────────────────────── */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-10">
           <Link
             href="/"
-            className="text-white font-[500] text-[15px] tracking-[0.14em] hover:opacity-80 transition-opacity flex-shrink-0"
+            className="text-white font-[500] text-[15px] tracking-[0.14em] hover:opacity-80 transition-opacity"
           >
             ATLASASCEND
           </Link>
 
-          {/* Nav links */}
-          <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer navigation">
-            {navLinks.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                className="text-white/60 text-[14px] hover:text-white/90 transition-colors"
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Social icons */}
           <div className="flex items-center gap-4">
             {socialLinks.map(({ label, href, icon: Icon }) => (
               <a
@@ -55,12 +50,53 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
+        {/* ── Menu columns ─────────────────────────────────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-10">
+          {/* Column 1 — Legal / Required pages */}
+          <div>
+            <h3 className="text-white/40 text-[11px] tracking-[0.12em] uppercase mb-4">
+              Legal
+            </h3>
+            <ul className="flex flex-col gap-3">
+              {legalLinks.map(({ label, href }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-white/70 text-[14px] hover:text-white transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 2 — Quick links */}
+          <div>
+            <h3 className="text-white/40 text-[11px] tracking-[0.12em] uppercase mb-4">
+              Quick Links
+            </h3>
+            <ul className="flex flex-col gap-3">
+              {quickLinks.map(({ label, href }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-white/70 text-[14px] hover:text-white transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* ── Divider ──────────────────────────────────────────────────── */}
         <div className="border-t border-white/[0.08] mb-6" />
 
-        {/* Bottom row */}
+        {/* ── Bottom bar ───────────────────────────────────────────────── */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-          <p className="text-[13px] text-white/40">© 2026 AtlasAscend</p>
+          <p className="text-[13px] text-white/40">© {new Date().getFullYear()} AtlasAscend</p>
           <p className="text-[13px] text-white/40">Built by Jonas Bluhme</p>
         </div>
       </div>
