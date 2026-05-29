@@ -46,7 +46,7 @@ export default function Nav() {
           </svg>
           <span className="text-[15px] tracking-[0.14em]">
             <span style={{ fontWeight: 100 }}>ATLAS</span>
-            <span style={{ fontWeight: 800 }}>ASCEND</span>
+            <span style={{ fontWeight: 500, letterSpacing: '0.22em' }}>ASCEND</span>
           </span>
         </Link>
 
